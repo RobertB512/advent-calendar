@@ -47,7 +47,7 @@ body {
 }
 
 .countdown-wrapper {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 3rem;
 }
 
@@ -157,4 +157,57 @@ body {
   width: 80%;
   height: auto;
   z-index: 3;
+}
+
+.bottom-section {
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.advnt-btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.advnt-btn-wrapper button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 8rem;
+  width: 8rem;
+  padding: 2rem;
+  border: 0.5rem solid #ffffff;
+  background-color: #006400;
+  color: #ffffff;
+  font-size: 4rem;
+  font-weight: 700;
+}
+.advnt-btn-wrapper button:hover {
+  cursor: pointer;
+  background-color: #00a000;
+}
+
+.paper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #79FF87;
+  color: darkblue;
+  max-width: 50rem;
+  height: 50rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  overflow-y: scroll;
+}
+
+.btn-enabled {
+  background-color: darkgreen;
+  color: white;
+}
+
+.btn-disabled {
+  background-color: black;
+  color: black;
 }/*# sourceMappingURL=styles.css.map */
