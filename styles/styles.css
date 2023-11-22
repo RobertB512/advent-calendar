@@ -11,15 +11,15 @@ html {
 
 h1, h2 {
   line-height: 1;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 h1 {
-  font-size: 7rem;
+  font-size: clamp(5rem, 10vw, 7rem);
 }
 
 h2 {
-  font-size: 6rem;
+  font-size: clamp(4.5rem, 10vw, 6rem);
 }
 
 p {
@@ -38,6 +38,7 @@ body {
 
 .main-section {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
@@ -46,16 +47,25 @@ body {
   margin-bottom: 5rem;
 }
 
+.countdown-fireplace {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+}
+
 .countdown-wrapper {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 3rem;
+  max-width: 50rem;
 }
 
 .fireplace-wrapper {
   display: flex;
   justify-content: center;
-  width: 80vw;
-  height: 80vw;
+  width: min(80vw, 50rem);
+  height: min(80vw, 50rem);
   background-color: #ffffff;
   margin: 0 auto;
   border-radius: 1rem;
@@ -160,8 +170,26 @@ body {
 }
 
 .bottom-section {
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 5rem;
+}
+
+.paper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #79FF87;
+  color: darkblue;
+  max-width: 50rem;
+  height: 70rem;
+  border-radius: 1rem;
+  padding: min(4vw, 2rem);
+  overflow-y: scroll;
+}
+
+.advent-calendar {
+  max-width: 50rem;
 }
 
 .advnt-btn-wrapper {
@@ -174,9 +202,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  height: 8rem;
-  width: 8rem;
+  border-radius: 25%;
+  height: min(27vw, 8rem);
+  width: min(27vw, 8rem);
   padding: 2rem;
   border: 0.5rem solid #ffffff;
   background-color: #006400;
@@ -187,19 +215,6 @@ body {
 .advnt-btn-wrapper button:hover {
   cursor: pointer;
   background-color: #00a000;
-}
-
-.paper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #79FF87;
-  color: darkblue;
-  max-width: 50rem;
-  height: 50rem;
-  border-radius: 1rem;
-  padding: 2rem;
-  overflow-y: scroll;
 }
 
 .btn-enabled {
