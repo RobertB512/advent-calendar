@@ -1,3 +1,6 @@
+// todo
+// -- fix countdown flashing negative numbers if current date is Dec 26th (probally through Dec 31st). The correct countdown will show up, a second later.
+
 const handleCountdown = () => {
 	const heading = document.querySelector("h1");
 	const daysLeft = document.querySelector(".countdown-days");
@@ -39,8 +42,8 @@ const handleCountdown = () => {
 		minutesLeft.textContent = `${minutes}`;
 		secondsLeft.textContent = `${seconds}`;
 
-		if (timeUntilChristmas < 0 && days === -1)  {
-      //for some reason on Christmas day "days" = -1, not 0
+		if (timeUntilChristmas < 0 && days === -1) {
+			//for some reason on Christmas day "days" = -1, not 0
 			heading.textContent = "MERRY CHRISTMAS!";
 			daysLeft.textContent = "0";
 			hoursLeft.textContent = "0";
@@ -60,7 +63,31 @@ const handleCountdown = () => {
 	}, 1000);
 };
 
-handleCountdown();
+const scaleFlame = (flames) => {
+	const itsCold = document.querySelector(".its-cold");
+	let fireLit = false;
 
-// todo
-// -- fix countdown flashing negative numbers if current date is Dec 26th (probally through Dec 31st). The correct countdown will show up, a second later.
+	flames.forEach((flame) => {
+		flame.classList.toggle("scale-flame");
+		flame.classList.contains("scale-flame")
+			? (fireLit = true)
+			: (fireLit = false);
+	});
+
+	fireLit
+		? (itsCold.textContent = "Ahhh, nice. Now it's warming up.")
+		: (itsCold.textContent =
+				" By the way it's cold in here, why don't you start the fire? Just give that fireplace a tap or click in the black area. If you want it to be cold for some reason... don't start the fire, it's fine.");
+};
+
+const handleFirePlace = () => {
+	const fireArea = document.querySelector(".fire-area");
+	// const flameWrapper = document.querySelector(".flame-wrapper");
+	const fireFlames = document.querySelectorAll(".flame");
+
+	fireArea.removeEventListener("click", () => scaleFlame(fireFlames));
+	fireArea.addEventListener("click", () => scaleFlame(fireFlames));
+};
+
+handleCountdown();
+handleFirePlace();

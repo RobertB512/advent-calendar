@@ -9,7 +9,8 @@ html {
   font-size: 62.5%;
 }
 
-h1, h2 {
+h1,
+h2 {
   line-height: 1;
   margin-bottom: 5rem;
 }
@@ -26,12 +27,14 @@ p {
   font-size: 2rem;
 }
 
-h1, h2, .countdown-wrapper {
+h1,
+h2,
+.countdown-wrapper {
   color: #ffff00;
 }
 
 body {
-  background-color: #B01B2E;
+  background-color: #b01b2e;
   text-align: center;
   padding: 5rem 1.5rem;
 }
@@ -98,7 +101,8 @@ body {
   position: absolute;
   bottom: 0;
   border-radius: 50% 0 50% 50%;
-  transform: rotate(-45deg);
+  transition: 1s;
+  transform: rotate(-45deg) scale(0);
 }
 
 .flame-red {
@@ -127,11 +131,6 @@ body {
   height: 15%;
   background-color: #ffffe0;
   box-shadow: 0 0 2vw 3vw #ffffe0;
-}
-
-.base {
-  position: absolute;
-  border-radius: 50%;
 }
 
 .base-blue {
@@ -177,9 +176,11 @@ body {
 
 .paper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #79FF87;
+  gap: 2rem;
+  background-color: #79ff87;
   color: darkblue;
   max-width: 50rem;
   height: 70rem;
@@ -225,4 +226,8 @@ body {
 .btn-disabled {
   background-color: black;
   color: black;
+}
+
+.scale-flame {
+  transform: rotate(-45deg) scale(1);
 }/*# sourceMappingURL=styles.css.map */
