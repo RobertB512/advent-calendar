@@ -89,5 +89,34 @@ const handleFirePlace = () => {
 	fireArea.addEventListener("click", () => scaleFlame(fireFlames));
 };
 
+const handleAdventBtnsLighting = () => {
+	const adventBtns = document.querySelectorAll(".advnt-btn");
+
+	const currentMonth = new Date().getMonth();
+	const currentDay = new Date().getDate();
+
+	console.log(currentMonth, currentDay);
+
+	adventBtns.forEach((btn) => {
+		btn.setAttribute("disabled", "disabled");
+	});
+
+	adventBtns.forEach((btn) => {
+		if (currentMonth === 11 && currentDay >= Number(btn.textContent)) {
+			btn.removeAttribute("disabled");
+		}
+
+		if (currentMonth === 11 && currentDay === Number(btn.textContent)) {
+			console.log("btn number", Number(btn.textContent));
+			console.log("hit if", currentMonth, currentDay);
+			btn.classList.add("btn-current-day");
+		} else {
+			console.log("hit else", currentMonth, currentDay);
+			btn.classList.remove("btn-current-day")
+		}
+	});
+};
+
 handleCountdown();
 handleFirePlace();
+handleAdventBtnsLighting();

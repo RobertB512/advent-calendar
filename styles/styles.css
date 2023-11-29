@@ -225,15 +225,15 @@ body {
   cursor: pointer;
   background-color: #00a000;
 }
-
-.btn-enabled {
-  background-color: darkgreen;
-  color: white;
+.advnt-btn-wrapper button:disabled {
+  background-color: #000000;
+  color: #000000;
+  cursor: auto;
 }
 
-.btn-disabled {
-  background-color: black;
-  color: black;
+button.btn-current-day {
+  background-color: #0000ff;
+  color: #ffff00;
 }
 
 .scale-flame {

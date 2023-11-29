@@ -267,18 +267,34 @@ body {
 			cursor: pointer;
 			background-color: #00a000;
 		}
+
+		&:disabled {
+			background-color: #000000;
+			color: #000000;
+      cursor: auto;
+		}
+
+		// &:enabled {
+		// 	background-color: #006400;
+		// 	color: #ffffff;
+		// }
 	}
 }
 
 // for javascript
-.btn-enabled {
-	background-color: darkgreen;
-	color: white;
-}
+// .btn-disabled {
+// 	background-color: black;
+// 	color: black;
+// }
 
-.btn-disabled {
-	background-color: black;
-	color: black;
+// .btn-enabled {
+// 	background-color: #006400;
+// 	color: #ffffff;
+// }
+
+button.btn-current-day {
+	background-color: #0000ff;
+	color: #ffff00;
 }
 
 .scale-flame {
