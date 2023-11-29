@@ -9,14 +9,6 @@ const handleCountdown = () => {
 	const secondsLeft = document.querySelector(".countdown-secs");
 
 	let currentYear = new Date().getFullYear();
-	// const dateOfChristmas = new Date();
-	// dateOfChristmas.setMonth(12);
-	// dateOfChristmas.setDate(25);
-	// dateOfChristmas.setHours(0);
-	// dateOfChristmas.setMinutes(0);
-	// dateOfChristmas.setSeconds(0);
-
-	// console.log("Christmas", dateOfChristmas)
 
 	const countdownInterval = setInterval(() => {
 		const currentFullDate = new Date().getTime();
@@ -24,11 +16,9 @@ const handleCountdown = () => {
 			`Dec 25, ${currentYear} 00:00:00`
 		).getTime();
 
-		// console.log("current", currentFullDate)
 		const timeUntilChristmas = dateOfChristmas - currentFullDate;
 
 		const days = Math.floor(timeUntilChristmas / (1000 * 60 * 60 * 24));
-		// console.log("days", days)
 		const hours = Math.floor(
 			(timeUntilChristmas % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
 		);
@@ -49,9 +39,6 @@ const handleCountdown = () => {
 			hoursLeft.textContent = "0";
 			minutesLeft.textContent = "0";
 			secondsLeft.textContent = "0";
-			console.log("days", days);
-			// currentYear++;
-			// console.log("year", currentYear);
 			clearInterval(countdownInterval);
 		} else if (dateOfChristmas < currentFullDate) {
 			heading.textContent = "Christmas Advent";
@@ -82,7 +69,6 @@ const scaleFlame = (flames) => {
 
 const handleFirePlace = () => {
 	const fireArea = document.querySelector(".fire-area");
-	// const flameWrapper = document.querySelector(".flame-wrapper");
 	const fireFlames = document.querySelectorAll(".flame");
 
 	fireArea.removeEventListener("click", () => scaleFlame(fireFlames));
@@ -90,12 +76,10 @@ const handleFirePlace = () => {
 };
 
 const handleAdventBtnsLighting = () => {
-	const adventBtns = document.querySelectorAll(".advnt-btn");
+	const adventBtns = document.querySelectorAll(".advent-btn");
 
 	const currentMonth = new Date().getMonth();
 	const currentDay = new Date().getDate();
-
-	console.log(currentMonth, currentDay);
 
 	adventBtns.forEach((btn) => {
 		btn.setAttribute("disabled", "disabled");
@@ -107,12 +91,9 @@ const handleAdventBtnsLighting = () => {
 		}
 
 		if (currentMonth === 11 && currentDay === Number(btn.textContent)) {
-			console.log("btn number", Number(btn.textContent));
-			console.log("hit if", currentMonth, currentDay);
 			btn.classList.add("btn-current-day");
 		} else {
-			console.log("hit else", currentMonth, currentDay);
-			btn.classList.remove("btn-current-day")
+			btn.classList.remove("btn-current-day");
 		}
 	});
 };

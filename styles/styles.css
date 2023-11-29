@@ -134,8 +134,8 @@ body {
 }
 
 .base-blue {
-  width: 5%;
-  height: 5%;
+  width: 0.5%;
+  height: 0.5%;
   background-color: #00008b;
   box-shadow: 0 0 2vw 2vw #00008b;
 }
@@ -201,13 +201,13 @@ body {
   max-width: 50rem;
 }
 
-.advnt-btn-wrapper {
+.advent-btn-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
 }
-.advnt-btn-wrapper button {
+.advent-btn-wrapper button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,11 +221,11 @@ body {
   font-size: 4rem;
   font-weight: 700;
 }
-.advnt-btn-wrapper button:hover {
+.advent-btn-wrapper button:hover {
   cursor: pointer;
   background-color: #00a000;
 }
-.advnt-btn-wrapper button:disabled {
+.advent-btn-wrapper button:disabled {
   background-color: #000000;
   color: #000000;
   cursor: auto;
