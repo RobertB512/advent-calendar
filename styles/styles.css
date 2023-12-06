@@ -10,8 +10,9 @@ html {
 }
 
 h1,
-h2 {
-  line-height: 1;
+h2,
+h3 {
+  line-height: 1.2;
   margin-bottom: 5rem;
 }
 
@@ -21,6 +22,11 @@ h1 {
 
 h2 {
   font-size: clamp(4.5rem, 10vw, 6rem);
+}
+
+h3 {
+  font-size: 4.5rem;
+  margin-bottom: 2.5rem;
 }
 
 p {
@@ -182,7 +188,7 @@ body {
   background-color: #79ff87;
   color: darkblue;
   max-width: 50rem;
-  height: 70rem;
+  height: 55rem;
   border-radius: 1rem;
   padding: min(4vw, 2rem);
   overflow: scroll;
@@ -195,6 +201,10 @@ body {
 }
 .paper::-webkit-scrollbar-thumb {
   background-color: darkblue;
+}
+.paper .text-source,
+.paper a {
+  word-break: break-word;
 }
 
 .advent-calendar {
