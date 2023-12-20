@@ -103,16 +103,12 @@ const populatePaperWithContent = (contentType, contentToWrite, source) => {
 	const paper = document.querySelector(".paper");
 	const contentTypeHeading = document.createElement("h3");
 	const paperText = document.createElement("p");
-	// const linkWrapper = document.createElement("p");
-	// const sourceLink = document.createElement("a");
 
 	paper.textContent = "";
 	contentTypeHeading.classList.add("content-type");
 	paperText.classList.add("main-text");
-	// linkWrapper.classList.add("text-source");
-	// sourceLink.setAttribute("href", `${source}`);
-	// sourceLink.textContent = source;
-	contentType === "traditions"
+
+  contentType === "traditions"
 		? (contentTypeHeading.textContent = "Christmas Around the World")
 		: null;
 	paperText.textContent = contentToWrite;
@@ -182,11 +178,7 @@ const handleTraditionBtns = () => {
 		tradition4,
 		tradition5,
 	];
-	// const currentMonth = new Date().getMonth();
-	// const currentDay = new Date().getDate();
 
-	// let currentBtn;
-	// let contentToWrite;
 	const traditionBtns = [
 		adventBtn1,
 		adventBtn6,
@@ -219,10 +211,188 @@ const listenForTraditionBtn = (
 	);
 };
 
+const handleGameBtns = () => {
+	const adventBtn2 = document.querySelector(".advent-btn-2");
+	const adventBtn7 = document.querySelector(".advent-btn-7");
+	const adventBtn12 = document.querySelector(".advent-btn-12");
+	const adventBtn17 = document.querySelector(".advent-btn-17");
+	const adventBtn22 = document.querySelector(".advent-btn-22");
+
+	const gameText = document.querySelector(".game-text");
+
+	const answerField = document.createElement("input");
+
+	const game1 = {
+		content: `Oh, bring us some figgy pudding  <br> Oh, bring us some figgy pudding <br> Oh bring us some figgy pudding <br> <input></input>!`,
+		answers: ["And bring it right here"],
+	};
+
+	const game2 = {
+		content: `Twas the night before Christmas, when all through the house <br>
+      Not a creature was stirring, not even a mouse; <br>
+      <input></input> <input></input>, <br>
+      In hopes that St. Nicholas soon would be there; <br>
+      The children were nestled all snug in their beds; <br>
+      While visions of sugar-plums danced in their heads; <br>
+      And mamma in her 'kerchief, and I in my cap, <br>
+      Had just settled our <input></input> for a long winter's nap,`,
+		answers: ["The stockings were hung", "by the chimney with care", "brains"],
+	};
+
+	const game3 = {
+		content: `Oh, Frosty, the Snowman <br> <input></input> <br> And the children say <br> <input></input> <br> Just the same as you and me`,
+		answers: ["Was alive as he could be", "He could laugh and play"],
+	};
+
+	const game4 = {
+		content: `You know <input></input> and <input></input> and <input></input> and <input></input> <br> <input></input> and <input></input> and <input></input> and <input></input> <br> But do you recall <br> The most famous reindeer of all?`,
+		answers: [
+			"Dasher",
+			"Dancer",
+			"Prancer",
+			"Vixen",
+			"Comet",
+			"Cupid",
+			"Donner",
+			"Blitzen",
+		],
+	};
+
+	const game5 = {
+		content: `On the twelfth day of Christmas, <br>
+my true love gave to me <br>
+Twelve <input></input>, <br>
+Eleven <input></input>, <br>
+Ten <input></input>, <br>
+Nine <input></input>, <br>
+Eight <input></input>, <br>
+Seven <input></input>, <br>
+Six <input></input>, <br>
+Five <input></input>, <br>
+Four <input></input>, <br>
+Three <input></input>, <br>
+Two <input></input>, <br>
+And <input></input>!`,
+		answers: [
+			"drummers drumming",
+			"pipers piping",
+			"lords a-leaping",
+			"ladies dancing",
+			"maids a-milking",
+			"swans a-swimming",
+			"geese a-laying",
+			"golden rings",
+			"calling birds",
+			"French hens",
+			"turtle doves",
+			"a partridge in a pear tree",
+		],
+	};
+
+	const allGames = [game1, game2, game3, game4, game5];
+
+	const gameBtns = [
+		adventBtn2,
+		adventBtn7,
+		adventBtn12,
+		adventBtn17,
+		adventBtn22,
+	];
+	// const games = [game1];
+
+	let gameIndex = 0;
+	gameBtns.forEach((btn) => {
+		listenForGameBtns(
+			btn,
+			"game", // this is the content type
+			allGames[gameIndex]
+		);
+		gameIndex++;
+	});
+};
+
+const listenForGameBtns = (gameBtn, contentType, contentToWrite) => {
+	gameBtn.addEventListener("click", () => {
+		populatePaperWithGame(
+			"game", // this is the content type
+			contentToWrite.content
+		);
+
+		handleGameAnswers(contentToWrite.content, contentToWrite.answers);
+	});
+};
+
+const listenForTypedAnswer = (answerField, answer) => {
+	const userAnswer = answerField.value;
+	const correctAnswer = answer;
+
+	// console.log("user answer === answer", userAnswer.toLowerCase() === correctAnswer.toLowerCase())
+	// console.log("user answer and answer types", typeof(userAnswer), typeof(correctAnswer))
+
+	// console.log("answer", correctAnswer);
+	// console.log("user answer", userAnswer);
+
+	// const inputWidth = answerField.style.length
+	// console.log(inputWidth);
+
+	answerField.style.width = correctAnswer.length + 1 + "ch";
+
+	if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+		answerField.value = correctAnswer;
+		answerField.setAttribute("disabled", true);
+		answerField.classList.add("correct-answer");
+	} else {
+		console.log("answer should be: ", correctAnswer);
+	}
+	// userAnswer.toLowerCase() === correctAnswer.toLowerCase()
+	// 	? console.log("answer status: correct")
+	// 	: console.log("answer status: incorect");
+	// console.log("answer should be: ", correctAnswer);
+
+	// console.log("answer field", answerField);
+	// console.log("you typed: ", userAnswer);
+	// console.log("");
+};
+
+const handleGameAnswers = (gameContent, gameAnswers) => {
+	const gameText = document.querySelector(".game-text").textContent;
+	const answerFields = document.querySelectorAll("input");
+
+	answerFields.forEach((field, index) => {
+		field.addEventListener("input", () => {
+			listenForTypedAnswer(field, gameAnswers[index]);
+		});
+
+		// console.log("all answers", gameAnswers);
+		// console.log("an answer", gameAnswers[index]);
+		// console.log("answer index", index);
+	});
+
+	// console.log(gameText, gameContent, gameAnswers);
+};
+
+const populatePaperWithGame = (contentType, contentToWrite) => {
+	const paper = document.querySelector(".paper");
+	const contentTypeHeading = document.createElement("h3");
+	const gameText = document.createElement("p");
+	const answerForm = document.createElement("form");
+
+	paper.textContent = "";
+	contentType === "game"
+		? (contentTypeHeading.textContent = "Fill In The Blank")
+		: null;
+	contentTypeHeading.classList.add("content-type");
+	gameText.innerHTML = contentToWrite;
+	gameText.classList.add("game-text");
+	answerForm.append(gameText);
+	paper.append(contentTypeHeading, answerForm);
+};
+
 handleCountdown();
 handleFirePlace();
 handleAdventBtnsLighting();
 handleTraditionBtns();
+handleGameBtns();
 
 // for each button
 // handleTraditionBtn1();
