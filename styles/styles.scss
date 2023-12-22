@@ -33,13 +33,13 @@ h3 {
 p,
 input {
 	font-size: 2rem;
-  transition: 0.2s;
+	transition: 0.2s;
 }
 
 input {
 	width: 5ch;
 	border: 0.2rem solid green;
-  padding: 0.5rem;
+	padding: 0.5rem;
 }
 
 // common styles
@@ -230,6 +230,13 @@ body {
 		background-color: darkblue;
 	}
 
+	.game-note {
+		background-color: darkblue;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 1rem;
+	}
+
 	.text-source,
 	a {
 		word-break: break-word;
@@ -291,7 +298,7 @@ button.btn-current-day {
 }
 
 .correct-answer {
-  padding: 0;
+	padding: 0;
 	border: none;
 	background: transparent;
 }

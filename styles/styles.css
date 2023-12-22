@@ -211,6 +211,12 @@ body {
 .paper::-webkit-scrollbar-thumb {
   background-color: darkblue;
 }
+.paper .game-note {
+  background-color: darkblue;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
 .paper .text-source,
 .paper a {
   word-break: break-word;

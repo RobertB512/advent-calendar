@@ -108,7 +108,7 @@ const populatePaperWithContent = (contentType, contentToWrite, source) => {
 	contentTypeHeading.classList.add("content-type");
 	paperText.classList.add("main-text");
 
-  contentType === "traditions"
+	contentType === "traditions"
 		? (contentTypeHeading.textContent = "Christmas Around the World")
 		: null;
 	paperText.textContent = contentToWrite;
@@ -235,8 +235,12 @@ const handleGameBtns = () => {
       The children were nestled all snug in their beds; <br>
       While visions of sugar-plums danced in their heads; <br>
       And mamma in her 'kerchief, and I in my cap, <br>
-      Had just settled our <input></input> for a long winter's nap,`,
-		answers: ["The stockings were hung", "by the chimney with care", "brains"],
+      Had just settled <input></input> for a long winter's nap,`,
+		answers: [
+			"The stockings were hung",
+			"by the chimney with care",
+			"our brains",
+		],
 	};
 
 	const game3 = {
@@ -374,18 +378,23 @@ const handleGameAnswers = (gameContent, gameAnswers) => {
 const populatePaperWithGame = (contentType, contentToWrite) => {
 	const paper = document.querySelector(".paper");
 	const contentTypeHeading = document.createElement("h3");
+  const note = document.createElement("p")
 	const gameText = document.createElement("p");
 	const answerForm = document.createElement("form");
+
+
 
 	paper.textContent = "";
 	contentType === "game"
 		? (contentTypeHeading.textContent = "Fill In The Blank")
 		: null;
 	contentTypeHeading.classList.add("content-type");
+  note.textContent = "NOTE: The text field will disapear when you have guessed correctly."
 	gameText.innerHTML = contentToWrite;
+  note.classList.add("game-note")
 	gameText.classList.add("game-text");
 	answerForm.append(gameText);
-	paper.append(contentTypeHeading, answerForm);
+	paper.append(contentTypeHeading, note, answerForm);
 };
 
 handleCountdown();
