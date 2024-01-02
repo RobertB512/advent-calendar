@@ -78,8 +78,8 @@ const handleFirePlace = () => {
 const handleAdventBtnsLighting = () => {
 	const adventBtns = document.querySelectorAll(".advent-btn");
 
-	const currentMonth = new Date().getMonth();
-	const currentDay = new Date().getDate();
+	const currentMonth = new Date("Dec 25, 2024 01:00:00").getMonth();
+	const currentDay = new Date("Dec 25, 2024 01:00:00").getDate();
 
 	adventBtns.forEach((btn) => {
 		btn.setAttribute("disabled", "disabled");
@@ -232,14 +232,16 @@ const handleGameBtns = () => {
       Not a creature was stirring, not even a mouse; <br>
       <input></input> <input></input>, <br>
       In hopes that St. Nicholas soon would be there; <br>
-      The children were nestled all snug in their beds; <br>
-      While visions of sugar-plums danced in their heads; <br>
+      <input></input> <input></input>; <br>
+      While <input></input> of sugar-plums danced in their heads; <br>
       And mamma in her 'kerchief, and I in my cap, <br>
-      Had just settled <input></input> for a long winter's nap,`,
+      Had just settled down for a long winter's nap,`,
 		answers: [
 			"The stockings were hung",
 			"by the chimney with care",
-			"our brains",
+			"The children were nestled",
+      "all snug in their beds",
+      "visions"
 		],
 	};
 
@@ -378,20 +380,19 @@ const handleGameAnswers = (gameContent, gameAnswers) => {
 const populatePaperWithGame = (contentType, contentToWrite) => {
 	const paper = document.querySelector(".paper");
 	const contentTypeHeading = document.createElement("h3");
-  const note = document.createElement("p")
+	const note = document.createElement("p");
 	const gameText = document.createElement("p");
 	const answerForm = document.createElement("form");
-
-
 
 	paper.textContent = "";
 	contentType === "game"
 		? (contentTypeHeading.textContent = "Fill In The Blank")
 		: null;
 	contentTypeHeading.classList.add("content-type");
-  note.textContent = "NOTE: The text field will disapear when you have guessed correctly."
+	note.textContent =
+		"NOTE: The text field will disapear when you have guessed correctly.";
 	gameText.innerHTML = contentToWrite;
-  note.classList.add("game-note")
+	note.classList.add("game-note");
 	gameText.classList.add("game-text");
 	answerForm.append(gameText);
 	paper.append(contentTypeHeading, note, answerForm);
