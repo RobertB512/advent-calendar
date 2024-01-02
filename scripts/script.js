@@ -130,11 +130,11 @@ const populatePaperWithContent = (contentType, contentToWrite, source) => {
 };
 
 const handleTraditionBtns = () => {
-	const adventBtn1 = document.querySelector(".advent-btn-1");
-	const adventBtn6 = document.querySelector(".advent-btn-6");
-	const adventBtn11 = document.querySelector(".advent-btn-11");
-	const adventBtn16 = document.querySelector(".advent-btn-16");
-	const adventBtn21 = document.querySelector(".advent-btn-21");
+	const traditionBtn1 = document.querySelector(".advent-btn-3");
+	const traditionBtn2 = document.querySelector(".advent-btn-8");
+	const traditionBtn3 = document.querySelector(".advent-btn-13");
+	const traditionBtn4 = document.querySelector(".advent-btn-18");
+	const traditionBtn5 = document.querySelector(".advent-btn-23");
 
 	const tradition1 = {
 		tradition:
@@ -180,11 +180,11 @@ const handleTraditionBtns = () => {
 	];
 
 	const traditionBtns = [
-		adventBtn1,
-		adventBtn6,
-		adventBtn11,
-		adventBtn16,
-		adventBtn21,
+		traditionBtn1,
+    traditionBtn2,
+		traditionBtn3,
+		traditionBtn4,
+		traditionBtn5,
 	];
 
 	let traditionIndex = 0;
