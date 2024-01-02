@@ -50,7 +50,7 @@ h2,
 body {
   background-color: #b01b2e;
   text-align: center;
-  padding: 5rem 1.5rem;
+  padding: 5rem 0 0 0;
 }
 
 .main-section {
@@ -58,6 +58,7 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 0 1.5rem;
 }
 
 .top-section {
@@ -257,6 +258,29 @@ body {
   background-color: #000000;
   color: #000000;
   cursor: auto;
+}
+
+.snow-container {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.snow-container svg {
+  display: block;
+  width: 300rem;
+  height: 272px;
+}
+
+.snow-container .shape-fill {
+  fill: #ffffff;
+}
+
+.deep-snow {
+  background-color: #fff;
+  width: 100%;
+  height: 30rem;
 }
 
 .scale-flame {
