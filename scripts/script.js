@@ -445,7 +445,8 @@ const handleDecorating = () => {
 		populatePaperWithDecorOptions(
 			"Choose First Decoration",
 			reefImgSet,
-			reefArea
+			reefArea,
+			"Choose a reef to goo under the countdown."
 		)
 	);
 
@@ -453,7 +454,8 @@ const handleDecorating = () => {
 		populatePaperWithDecorOptions(
 			"Choose Second Decoration",
 			bellImgSet,
-			bellArea
+			bellArea,
+			"Choose a bell to go under this content section."
 		)
 	);
 
@@ -461,7 +463,8 @@ const handleDecorating = () => {
 		populatePaperWithDecorOptions(
 			"Choose Third Decoration",
 			stockingsImgSet,
-			stockingsArea
+			stockingsArea,
+			"Choose the stockings that will go on the fireplace."
 		)
 	);
 
@@ -469,7 +472,8 @@ const handleDecorating = () => {
 		populatePaperWithDecorOptions(
 			"Choose Fourth Decoration",
 			houseImgSet,
-			houseArea
+			houseArea,
+			"Choose a house that will go on the snow below."
 		)
 	);
 
@@ -477,21 +481,31 @@ const handleDecorating = () => {
 		populatePaperWithDecorOptions(
 			"Choose Fifth Decoration",
 			treeImgSet,
-			treeArea
+			treeArea,
+			"Choose a tree that will go on the snow below."
 		)
 	);
 };
 
-const populatePaperWithDecorOptions = (heading, decorSet, placeToDecorate) => {
+const populatePaperWithDecorOptions = (
+	heading,
+	decorSet,
+	placeToDecorate,
+	decorationNote
+) => {
 	const paper = document.querySelector(".paper");
 
 	const contentHeading = document.createElement("h3");
 	const decorOptionsWrapper = document.createElement("article");
-
+	const note = document.createElement("p");
+  
+	note.classList.add("decoration-note");
 	decorOptionsWrapper.classList.add("decor-options-wrapper");
+  
 	contentHeading.textContent = heading;
-
 	paper.textContent = "";
+
+	note.textContent = decorationNote;
 
 	decorSet.forEach((decor) => {
 		const decorOptionBtn = document.createElement("button");
@@ -508,7 +522,7 @@ const populatePaperWithDecorOptions = (heading, decorSet, placeToDecorate) => {
 			placeToDecorate.setAttribute("src", decor);
 		});
 	});
-	paper.append(contentHeading, decorOptionsWrapper);
+	paper.append(contentHeading, note, decorOptionsWrapper);
 };
 
 handleCountdown();
@@ -517,7 +531,4 @@ handleAdventBtnsLighting();
 handleTraditionBtns();
 handleGameBtns();
 handleDecorating();
-
-// for each button
-// handleTraditionBtn1();
-// handleTraditionBtn2();
+q
