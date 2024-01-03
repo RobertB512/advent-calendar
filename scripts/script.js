@@ -181,7 +181,7 @@ const handleTraditionBtns = () => {
 
 	const traditionBtns = [
 		traditionBtn1,
-    traditionBtn2,
+		traditionBtn2,
 		traditionBtn3,
 		traditionBtn4,
 		traditionBtn5,
@@ -240,8 +240,8 @@ const handleGameBtns = () => {
 			"The stockings were hung",
 			"by the chimney with care",
 			"The children were nestled",
-      "all snug in their beds",
-      "visions"
+			"all snug in their beds",
+			"visions",
 		],
 	};
 
@@ -398,11 +398,125 @@ const populatePaperWithGame = (contentType, contentToWrite) => {
 	paper.append(contentTypeHeading, note, answerForm);
 };
 
+const handleDecorating = () => {
+	const decorBtn1 = document.querySelector(".advent-btn-1");
+	const decorBtn2 = document.querySelector(".advent-btn-6");
+	const decorBtn3 = document.querySelector(".advent-btn-11");
+	const decorBtn4 = document.querySelector(".advent-btn-16");
+	const decorBtn5 = document.querySelector(".advent-btn-21");
+
+	const reefArea = document.querySelector(".reef-img");
+	const stockingsArea = document.querySelector(".stockings-img");
+	const bellArea = document.querySelector(".bell-img");
+	const houseArea = document.querySelector(".house-img");
+	const treeArea = document.querySelector(".tree-img");
+
+	const reefImgSet = [
+		"./images/reef1.png",
+		"./images/reef2.png",
+		"./images/reef3.png",
+	];
+
+	const bellImgSet = [
+		"./images/ChristmasBells1.png",
+		"./images/ChristmasBells2.png",
+		"./images/ChristmasBells3.png",
+	];
+
+	const stockingsImgSet = [
+		"./images/stockings1.png",
+		"./images/stockings2.png",
+		"./images/stockings3.png",
+	];
+
+	const houseImgSet = [
+		"./images/ChristmasHouse1.png",
+		"./images/ChristmasHouse2.png",
+		"./images/ChristmasHouse3.png",
+	];
+
+	const treeImgSet = [
+		"./images/ChristmasTree1.png",
+		"./images/ChristmasTree2.png",
+		"./images/ChristmasTree3.png",
+	];
+
+	decorBtn1.addEventListener("click", () =>
+		populatePaperWithDecorOptions(
+			"Choose First Decoration",
+			reefImgSet,
+			reefArea
+		)
+	);
+
+	decorBtn2.addEventListener("click", () =>
+		populatePaperWithDecorOptions(
+			"Choose Second Decoration",
+			bellImgSet,
+			bellArea
+		)
+	);
+
+	decorBtn3.addEventListener("click", () =>
+		populatePaperWithDecorOptions(
+			"Choose Third Decoration",
+			stockingsImgSet,
+			stockingsArea
+		)
+	);
+
+	decorBtn4.addEventListener("click", () =>
+		populatePaperWithDecorOptions(
+			"Choose Fourth Decoration",
+			houseImgSet,
+			houseArea
+		)
+	);
+
+	decorBtn5.addEventListener("click", () =>
+		populatePaperWithDecorOptions(
+			"Choose Fifth Decoration",
+			treeImgSet,
+			treeArea
+		)
+	);
+};
+
+const populatePaperWithDecorOptions = (heading, decorSet, placeToDecorate) => {
+	const paper = document.querySelector(".paper");
+
+	const contentHeading = document.createElement("h3");
+	const decorOptionsWrapper = document.createElement("article");
+
+	decorOptionsWrapper.classList.add("decor-options-wrapper");
+	contentHeading.textContent = heading;
+
+	paper.textContent = "";
+
+	decorSet.forEach((decor) => {
+		const decorOptionBtn = document.createElement("button");
+		const decorOptionImg = document.createElement("img");
+		decorOptionBtn.classList.add("decor-option-btn");
+		decorOptionImg.classList.add("decor-option-img");
+
+		decorOptionImg.setAttribute("src", decor);
+		decorOptionBtn.append(decorOptionImg);
+
+		decorOptionsWrapper.append(decorOptionBtn);
+
+		decorOptionBtn.addEventListener("click", () => {
+			placeToDecorate.setAttribute("src", decor);
+		});
+	});
+	paper.append(contentHeading, decorOptionsWrapper);
+};
+
 handleCountdown();
 handleFirePlace();
 handleAdventBtnsLighting();
 handleTraditionBtns();
 handleGameBtns();
+handleDecorating();
 
 // for each button
 // handleTraditionBtn1();

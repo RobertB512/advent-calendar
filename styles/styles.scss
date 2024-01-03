@@ -49,6 +49,11 @@ h2,
 	color: #ffff00;
 }
 
+.decoration-img {
+	max-width: 30rem;
+	height: auto;
+}
+
 // body
 body {
 	background-color: #b01b2e;
@@ -62,7 +67,7 @@ body {
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-  padding: 0 1.5rem;
+	padding: 0 1.5rem;
 }
 
 // top section
@@ -88,12 +93,19 @@ body {
 	$fireplace-size: min(80vw, 50rem);
 
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	width: $fireplace-size;
 	height: $fireplace-size;
 	background-color: #ffffff;
 	margin: 0 auto;
 	border-radius: 1rem;
+}
+.stockings-img {
+	position: absolute;
+	width: 30%;
+	height: auto;
+	z-index: 3;
 }
 
 .fire-area {
@@ -216,6 +228,7 @@ body {
 	height: 55rem;
 	border-radius: 1rem;
 	padding: min(4vw, 2rem);
+	padding-bottom: 5rem;
 	overflow-y: scroll;
 	overflow-x: hidden;
 
@@ -246,6 +259,41 @@ body {
 	input {
 		color: darkblue;
 	}
+
+	.decor-options-wrapper {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.decor-option-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 13rem;
+		// height: 20rem;
+		padding: 0.5rem;
+		border: 0.8rem solid darkblue;
+		border-radius: 2rem;
+		cursor: pointer;
+
+		&:hover {
+			background-color: hsla(0, 0%, 75%);
+		}
+	}
+
+	.decor-option-img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.bell-img {
+	max-width: 15rem;
+	height: auto;
+	position: relative;
+	bottom: 5rem;
 }
 
 .advent-calendar {
@@ -308,9 +356,19 @@ body {
 	fill: #ffffff;
 }
 .deep-snow {
-  background-color: #fff;
-  width: 100%;
-  height: 30rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+	background-color: #fff;
+	width: 100%;
+	height: 80rem;
+}
+
+.house-img,
+.tree-img {
+	max-width: 30rem;
+	height: auto;
 }
 
 // for javascript
