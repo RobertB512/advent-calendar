@@ -531,4 +531,3 @@ handleAdventBtnsLighting();
 handleTraditionBtns();
 handleGameBtns();
 handleDecorating();
-q
