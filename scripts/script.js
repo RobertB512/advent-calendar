@@ -110,6 +110,8 @@ const populatePaperWithContent = (contentType, contentToWrite, source) => {
 
 	contentType === "traditions"
 		? (contentTypeHeading.textContent = "Christmas Around the World")
+		: contentType === "Winter Fact"
+		? (contentTypeHeading.textContent = "Winter Fact")
 		: null;
 	paperText.textContent = contentToWrite;
 	paper.append(contentTypeHeading, paperText);
@@ -129,12 +131,17 @@ const populatePaperWithContent = (contentType, contentToWrite, source) => {
 	// paper.textContent = `${contentToWrite}`;
 };
 
-const handleTraditionBtns = () => {
+const handlePlainTextBtns = () => {
 	const traditionBtn1 = document.querySelector(".advent-btn-3");
 	const traditionBtn2 = document.querySelector(".advent-btn-8");
 	const traditionBtn3 = document.querySelector(".advent-btn-13");
 	const traditionBtn4 = document.querySelector(".advent-btn-18");
 	const traditionBtn5 = document.querySelector(".advent-btn-23");
+	const winterFactBtn1 = document.querySelector(".advent-btn-4");
+	const winterFactBtn2 = document.querySelector(".advent-btn-9");
+	const winterFactBtn3 = document.querySelector(".advent-btn-14");
+	const winterFactBtn4 = document.querySelector(".advent-btn-19");
+	const winterFactBtn5 = document.querySelector(".advent-btn-24");
 
 	const tradition1 = {
 		tradition:
@@ -187,9 +194,64 @@ const handleTraditionBtns = () => {
 		traditionBtn5,
 	];
 
+	const winterFact1 = {
+		winterFact:
+			"First off, let’s deal with a misconception. Earth’s distance from the sun is not what causes seasons. What? Isn’t the Earth furthest from the sun in winter? No, not for the northern hemisphere anyway. The Earth is closest to the sun when it’s winter in the northern hemisphere. What causes the seasons is the tilt of the Earth. When the north pole is titled away from the sun, it’s winter in the northern hemisphere, and summer in the southern hemisphere. When the north pole is titled toward the sun, it’s winter in the southern hemisphere, and summer in the northern hemisphere.",
+		source: [
+			"https://www.mentalfloss.com/article/89881/15-surprising-facts-about-winter-weather ",
+		],
+	};
+	const winterFact2 = {
+		winterFact:
+			"The major city that receives the most annual snowfall on Earth may not be what you would think. It’s not somewhere in Russia, but Japan. To be clear, this is the major city that receives the most annual snowfall, not place or city in general. One source I came across said of any city over a 100,000 population. To continue, Aomori, Japan’s annual snowfall on average is about 312 inches, or about 26 feet. This does vary based on where in the city you are. ",
+		source: [
+			"https://www.mentalfloss.com/article/89881/15-surprising-facts-about-winter-weather",
+			"https://www.youtube.com/watch?v=qqerKWp1kqs",
+		],
+	};
+	const winterFact3 = {
+		winterFact:
+			"According to the Gunness World Records, the largest snowflake ever recorded fell near Missoula, Montana in 1887. Reportedly, this snowflake was 15 inches wide and 8 inches thick. However, there is no photographic proof of this phenomena, and there are skeptics of this claim. In addition, this snowflake would not have been one large crystal, but multiple snowflakes. This snowflake would also not have been a giant, fancy, symmetrical version of what we’re used to. It may have had a more chaotic shape.",
+		source: [
+			"https://www.npr.org/2023/12/25/1217356234/just-how-big-can-a-snowflake-get-it-depends-on-what-you-mean-by-snowflake#:~:text=If%20you%20consult%20the%20Guinness,diameter%20and%208%20inches%20thick",
+			"https://www.worldrecordacademy.org/2023/11/world-largest-snowflake-world-record-at-fort-keogh-montana-423550",
+		],
+	};
+	const winterFact4 = {
+		winterFact:
+			"The U.S. uses 10 to 20 million tons of salt on its roads each winter. This is enough salt to fill dump trucks bumper to bumper spanning 8,333 miles. This distance is equivalent to Burlington, Vermont to Seattle Washington, back to Burlington, and lastly to Glacier National Park, Montana. Another comparison is that we use 10 times as much salt on our roads as we do in processed foods.",
+		source: [
+			"https://www.copecompany.com/snow-management-industry-articles/history-of-road-salt/",
+			"https://www.uvm.edu/seagrant/outreach/road-salt-water-quality-salt-savvy-champlain#:~:text=W	e%20have%20used%20road%20salt,in%20the%20U.S.%20each%20year ",
+		],
+	};
+	const winterFact5 = {
+		winterFact:
+			"Thunder and lightning don’t just happen when there’s rain. Though rare, thunder and lightning can occur in winter, during snowfall too, this event is called thundersnow. For thundersnow to happen, columns of warm air must rise from the ground forming turbulent storm clouds. More is still needed though, like that the air closest to the ground must be warmer than the cloud cover above it, then wind must push that warm air upwards. Still, you might not notice thundersnow when it happens, with it being harder to see lightning in winter, and with the snow dampening the sound of the thunder. ",
+		source: [
+			"https://www.mentalfloss.com/article/89881/15-surprising-facts-about-winter-weather",
+		],
+	};
+
+	const winterFacts = [
+		winterFact1,
+		winterFact2,
+		winterFact3,
+		winterFact4,
+		winterFact5,
+	];
+
+	const winterFactBtns = [
+		winterFactBtn1,
+		winterFactBtn2,
+		winterFactBtn3,
+		winterFactBtn4,
+		winterFactBtn5,
+	];
+
 	let traditionIndex = 0;
 	traditionBtns.forEach((btn) => {
-		listenForTraditionBtn(
+		listenForInfoBtns(
 			btn,
 			"traditions", // this is the content type
 			traditions[traditionIndex].tradition,
@@ -197,14 +259,20 @@ const handleTraditionBtns = () => {
 		);
 		traditionIndex++;
 	});
+
+	let winterFactIndex = 0;
+	winterFactBtns.forEach((btn) => {
+		listenForInfoBtns(
+			btn,
+			"Winter Fact", // this is the content type
+			winterFacts[winterFactIndex].winterFact,
+			winterFacts[winterFactIndex].source
+		);
+		winterFactIndex++;
+	});
 };
 
-const listenForTraditionBtn = (
-	btnName,
-	contentType,
-	contentToWrite,
-	source
-) => {
+const listenForInfoBtns = (btnName, contentType, contentToWrite, source) => {
 	// btnName.removeEventListener("click", populatePaperWithContent(contentToWrite));
 	btnName.addEventListener("click", () =>
 		populatePaperWithContent(contentType, contentToWrite, source)
@@ -498,10 +566,10 @@ const populatePaperWithDecorOptions = (
 	const contentHeading = document.createElement("h3");
 	const decorOptionsWrapper = document.createElement("article");
 	const note = document.createElement("p");
-  
+
 	note.classList.add("decoration-note");
 	decorOptionsWrapper.classList.add("decor-options-wrapper");
-  
+
 	contentHeading.textContent = heading;
 	paper.textContent = "";
 
@@ -528,6 +596,6 @@ const populatePaperWithDecorOptions = (
 handleCountdown();
 handleFirePlace();
 handleAdventBtnsLighting();
-handleTraditionBtns();
+handlePlainTextBtns();
 handleGameBtns();
 handleDecorating();
