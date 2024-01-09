@@ -112,20 +112,24 @@ const populatePaperWithContent = (contentType, contentToWrite, source) => {
 		? (contentTypeHeading.textContent = "Christmas Around the World")
 		: contentType === "winter fact"
 		? (contentTypeHeading.textContent = "Winter Fact")
-		: null;
+		: (contentType = "verse"
+				? (contentTypeHeading.textContent = "Bible Verse")
+				: null);
 	paperText.textContent = contentToWrite;
 	paper.append(contentTypeHeading, paperText);
 
 	source.forEach((link) => {
-		const linkWrapper = document.createElement("p");
-		const sourceLink = document.createElement("a");
+		if (link) {
+			const linkWrapper = document.createElement("p");
+			const sourceLink = document.createElement("a");
 
-		linkWrapper.classList.add("text-source");
-		sourceLink.setAttribute("href", `${link}`);
-		sourceLink.textContent = link;
-		linkWrapper.textContent = "Source: ";
-		linkWrapper.append(sourceLink);
-		paper.append(linkWrapper);
+			linkWrapper.classList.add("text-source");
+			sourceLink.setAttribute("href", `${link}`);
+			sourceLink.textContent = link;
+			linkWrapper.textContent = "Source: ";
+			linkWrapper.append(sourceLink);
+			paper.append(linkWrapper);
+		}
 	});
 
 	// paper.textContent = `${contentToWrite}`;
@@ -221,6 +225,26 @@ const handlePlainTextBtns = () => {
 		],
 	};
 
+	const verse1 = {
+		content:
+			"Therefore the Lord himself will give you a sign. Behold, the virgin shall conceive and bear a son, and shall call his name Immanuel. --Isaiah 7:14",
+		source: [""],
+	};
+	const verse2 = {
+		content:
+			"For unto you is born this day in the city of David a Savior, who is Christ the Lord. --Luke 2:11",
+		source: [""],
+	};
+	const verse3 = {
+		content:
+			"For to us a child is born, to us a son is given; and the goverment shall be upon his shoulder, and his name shall be called Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace. --Isaiah 9:6",
+		source: [""],
+	};
+	const verse4 = {
+		content:
+			"But when the kindness and love of God our Savior appeared, he saved us, not because of righteous things we had done, but because of his mercy. He saved us through the washing of rebirth and renewal by the Holy Spirit, whom he poured out on us genererously through Jesus Christ our Savior. --Titus 3:4-6",
+		source: [""],
+	};
 
 	const traditions = [
 		tradition1,
@@ -254,8 +278,13 @@ const handlePlainTextBtns = () => {
 		winterFactBtn5,
 	];
 
+	const verses = [verse1, verse2, verse3, verse4];
+
+	const verseBtns = [verseBtn1, verseBtn2, verseBtn3, verseBtn4];
+
 	passToFunction(traditionBtns, "traditions", traditions);
 	passToFunction(winterFactBtns, "winter fact", winterFacts);
+	passToFunction(verseBtns, "verse", verses);
 };
 
 const passToFunction = (btnSet, contentType, contentSet) => {
