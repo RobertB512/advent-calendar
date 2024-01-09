@@ -110,7 +110,7 @@ const populatePaperWithContent = (contentType, contentToWrite, source) => {
 
 	contentType === "traditions"
 		? (contentTypeHeading.textContent = "Christmas Around the World")
-		: contentType === "Winter Fact"
+		: contentType === "winter fact"
 		? (contentTypeHeading.textContent = "Winter Fact")
 		: null;
 	paperText.textContent = contentToWrite;
@@ -142,16 +142,20 @@ const handlePlainTextBtns = () => {
 	const winterFactBtn3 = document.querySelector(".advent-btn-14");
 	const winterFactBtn4 = document.querySelector(".advent-btn-19");
 	const winterFactBtn5 = document.querySelector(".advent-btn-24");
+	const verseBtn1 = document.querySelector(".advent-btn-5");
+	const verseBtn2 = document.querySelector(".advent-btn-10");
+	const verseBtn3 = document.querySelector(".advent-btn-15");
+	const verseBtn4 = document.querySelector(".advent-btn-20");
 
 	const tradition1 = {
-		tradition:
+		content:
 			"While in the United States, we use decorations like tinsel and stars, Ukraine uses spider webs. That's right, spider webs. The origin comes from a folktale of a poor widow. She didn't have enough money to decorate a tree. The story goes that the spiders in the house had pity for the family. They spun lovely webs all over the tree, which the children were to find on Christmas morning.",
 		source: [
 			"https://www.holidayextras.com/travel-blog/wanderlust/unusual-christmas-traditions.html",
 		],
 	};
 	const tradition2 = {
-		tradition:
+		content:
 			"Iceland has 13 days of Christmas. Over these 13 days, kids are visited by 13 Yule Lads, a different Yule Lad each night. Common names of these elves are: Gimpy, Gully Imp, Itty Bitty, Pot Scraper Licker, Pot Licker, Bowl Licker, Door Slammer, Skyr Gobbler, Sausage Snatcher, Window Peeper, Doorway Sniffer, Meat Hooker, and Candle Beggar. The kids place their shoes by the window and go to bed. In the morning, good kids receive candy, but bad kids find their shoes stuffed with rotten potatoes.",
 		source: [
 			"https://www.countryliving.com/entertaining/g4933/christmas-traditions-around-the-world/",
@@ -159,24 +163,64 @@ const handlePlainTextBtns = () => {
 		],
 	};
 	const tradition3 = {
-		tradition:
+		content:
 			"In Caracas, Venezuela, skating is the way you get to church on Christmas morning, not by driving. If you were to drive, it might take a little while. Here it is such a customary practice to skate to church on Christmas morning that some streets are closed to cars so the skaters can get there safel..",
 		source: [
 			"https://www.thepioneerwoman.com/holidays-celebrations/g41466285/christmas-traditions-around-world/",
 		],
 	};
 	const tradition4 = {
-		tradition:
+		content:
 			"San Fernanda, Philippines holds a Christmas light festival every year, Ligligan Parul (Giant Lantern Festival). This festival features bright lanterns which symbolize the star of Bethlehem. The lanterns contain spinning lights which light up the night sky. San Fernando is the Christmas capital of the Philippines, due to the festival.",
 		source: [
 			"https://www.countryliving.com/entertaining/g4933/christmas-traditions-around-the-world/",
 		],
 	};
 	const tradition5 = {
-		tradition:
+		content:
 			"There’s nothing like simplicity. Ethiopia celebrates Christmas on January 7th. On Christmas, Ethiopians don’t give and receive gifts on Christmas. Kids, however, might get clothes from their family. People still love to eat, play games, and go to church. Simple, isn’t it?",
 		source: ["https://www.whychristmas.com/cultures/ethiopia"],
 	};
+
+	const winterFact1 = {
+		content:
+			"First off, let’s deal with a misconception. Earth’s distance from the sun is not what causes seasons. What? Isn’t the Earth furthest from the sun in winter? No, not for the northern hemisphere anyway. The Earth is closest to the sun when it’s winter in the northern hemisphere. What causes the seasons is the tilt of the Earth. When the north pole is titled away from the sun, it’s winter in the northern hemisphere, and summer in the southern hemisphere. When the north pole is titled toward the sun, it’s winter in the southern hemisphere, and summer in the northern hemisphere.",
+		source: [
+			"https://www.mentalfloss.com/article/89881/15-surprising-facts-about-winter-weather ",
+		],
+	};
+	const winterFact2 = {
+		content:
+			"The major city that receives the most annual snowfall on Earth may not be what you would think. It’s not somewhere in Russia, but Japan. To be clear, this is the major city that receives the most annual snowfall, not place or city in general. One source I came across said of any city over a 100,000 population. To continue, Aomori, Japan’s annual snowfall on average is about 312 inches, or about 26 feet. This does vary based on where in the city you are. ",
+		source: [
+			"https://www.mentalfloss.com/article/89881/15-surprising-facts-about-winter-weather",
+			"https://www.youtube.com/watch?v=qqerKWp1kqs",
+		],
+	};
+	const winterFact3 = {
+		content:
+			"According to the Gunness World Records, the largest snowflake ever recorded fell near Missoula, Montana in 1887. Reportedly, this snowflake was 15 inches wide and 8 inches thick. However, there is no photographic proof of this phenomena, and there are skeptics of this claim. In addition, this snowflake would not have been one large crystal, but multiple snowflakes. This snowflake would also not have been a giant, fancy, symmetrical version of what we’re used to. It may have had a more chaotic shape.",
+		source: [
+			"https://www.npr.org/2023/12/25/1217356234/just-how-big-can-a-snowflake-get-it-depends-on-what-you-mean-by-snowflake#:~:text=If%20you%20consult%20the%20Guinness,diameter%20and%208%20inches%20thick",
+			"https://www.worldrecordacademy.org/2023/11/world-largest-snowflake-world-record-at-fort-keogh-montana-423550",
+		],
+	};
+	const winterFact4 = {
+		content:
+			"The U.S. uses 10 to 20 million tons of salt on its roads each winter. This is enough salt to fill dump trucks bumper to bumper spanning 8,333 miles. This distance is equivalent to Burlington, Vermont to Seattle Washington, back to Burlington, and lastly to Glacier National Park, Montana. Another comparison is that we use 10 times as much salt on our roads as we do in processed foods.",
+		source: [
+			"https://www.copecompany.com/snow-management-industry-articles/history-of-road-salt/",
+			"https://www.uvm.edu/seagrant/outreach/road-salt-water-quality-salt-savvy-champlain#:~:text=W	e%20have%20used%20road%20salt,in%20the%20U.S.%20each%20year ",
+		],
+	};
+	const winterFact5 = {
+		content:
+			"Thunder and lightning don’t just happen when there’s rain. Though rare, thunder and lightning can occur in winter, during snowfall too, this event is called thundersnow. For thundersnow to happen, columns of warm air must rise from the ground forming turbulent storm clouds. More is still needed though, like that the air closest to the ground must be warmer than the cloud cover above it, then wind must push that warm air upwards. Still, you might not notice thundersnow when it happens, with it being harder to see lightning in winter, and with the snow dampening the sound of the thunder. ",
+		source: [
+			"https://www.mentalfloss.com/article/89881/15-surprising-facts-about-winter-weather",
+		],
+	};
+
 
 	const traditions = [
 		tradition1,
@@ -194,45 +238,6 @@ const handlePlainTextBtns = () => {
 		traditionBtn5,
 	];
 
-	const winterFact1 = {
-		winterFact:
-			"First off, let’s deal with a misconception. Earth’s distance from the sun is not what causes seasons. What? Isn’t the Earth furthest from the sun in winter? No, not for the northern hemisphere anyway. The Earth is closest to the sun when it’s winter in the northern hemisphere. What causes the seasons is the tilt of the Earth. When the north pole is titled away from the sun, it’s winter in the northern hemisphere, and summer in the southern hemisphere. When the north pole is titled toward the sun, it’s winter in the southern hemisphere, and summer in the northern hemisphere.",
-		source: [
-			"https://www.mentalfloss.com/article/89881/15-surprising-facts-about-winter-weather ",
-		],
-	};
-	const winterFact2 = {
-		winterFact:
-			"The major city that receives the most annual snowfall on Earth may not be what you would think. It’s not somewhere in Russia, but Japan. To be clear, this is the major city that receives the most annual snowfall, not place or city in general. One source I came across said of any city over a 100,000 population. To continue, Aomori, Japan’s annual snowfall on average is about 312 inches, or about 26 feet. This does vary based on where in the city you are. ",
-		source: [
-			"https://www.mentalfloss.com/article/89881/15-surprising-facts-about-winter-weather",
-			"https://www.youtube.com/watch?v=qqerKWp1kqs",
-		],
-	};
-	const winterFact3 = {
-		winterFact:
-			"According to the Gunness World Records, the largest snowflake ever recorded fell near Missoula, Montana in 1887. Reportedly, this snowflake was 15 inches wide and 8 inches thick. However, there is no photographic proof of this phenomena, and there are skeptics of this claim. In addition, this snowflake would not have been one large crystal, but multiple snowflakes. This snowflake would also not have been a giant, fancy, symmetrical version of what we’re used to. It may have had a more chaotic shape.",
-		source: [
-			"https://www.npr.org/2023/12/25/1217356234/just-how-big-can-a-snowflake-get-it-depends-on-what-you-mean-by-snowflake#:~:text=If%20you%20consult%20the%20Guinness,diameter%20and%208%20inches%20thick",
-			"https://www.worldrecordacademy.org/2023/11/world-largest-snowflake-world-record-at-fort-keogh-montana-423550",
-		],
-	};
-	const winterFact4 = {
-		winterFact:
-			"The U.S. uses 10 to 20 million tons of salt on its roads each winter. This is enough salt to fill dump trucks bumper to bumper spanning 8,333 miles. This distance is equivalent to Burlington, Vermont to Seattle Washington, back to Burlington, and lastly to Glacier National Park, Montana. Another comparison is that we use 10 times as much salt on our roads as we do in processed foods.",
-		source: [
-			"https://www.copecompany.com/snow-management-industry-articles/history-of-road-salt/",
-			"https://www.uvm.edu/seagrant/outreach/road-salt-water-quality-salt-savvy-champlain#:~:text=W	e%20have%20used%20road%20salt,in%20the%20U.S.%20each%20year ",
-		],
-	};
-	const winterFact5 = {
-		winterFact:
-			"Thunder and lightning don’t just happen when there’s rain. Though rare, thunder and lightning can occur in winter, during snowfall too, this event is called thundersnow. For thundersnow to happen, columns of warm air must rise from the ground forming turbulent storm clouds. More is still needed though, like that the air closest to the ground must be warmer than the cloud cover above it, then wind must push that warm air upwards. Still, you might not notice thundersnow when it happens, with it being harder to see lightning in winter, and with the snow dampening the sound of the thunder. ",
-		source: [
-			"https://www.mentalfloss.com/article/89881/15-surprising-facts-about-winter-weather",
-		],
-	};
-
 	const winterFacts = [
 		winterFact1,
 		winterFact2,
@@ -249,26 +254,20 @@ const handlePlainTextBtns = () => {
 		winterFactBtn5,
 	];
 
-	let traditionIndex = 0;
-	traditionBtns.forEach((btn) => {
-		listenForInfoBtns(
-			btn,
-			"traditions", // this is the content type
-			traditions[traditionIndex].tradition,
-			traditions[traditionIndex].source
-		);
-		traditionIndex++;
-	});
+	passToFunction(traditionBtns, "traditions", traditions);
+	passToFunction(winterFactBtns, "winter fact", winterFacts);
+};
 
-	let winterFactIndex = 0;
-	winterFactBtns.forEach((btn) => {
+const passToFunction = (btnSet, contentType, contentSet) => {
+	let index = 0;
+	btnSet.forEach((btn) => {
 		listenForInfoBtns(
 			btn,
-			"Winter Fact", // this is the content type
-			winterFacts[winterFactIndex].winterFact,
-			winterFacts[winterFactIndex].source
+			contentType,
+			contentSet[index].content,
+			contentSet[index].source
 		);
-		winterFactIndex++;
+		index++;
 	});
 };
 
