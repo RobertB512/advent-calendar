@@ -75,11 +75,18 @@ const handleFirePlace = () => {
 	fireArea.addEventListener("click", () => scaleFlame(fireFlames));
 };
 
-const handleAdventBtnsLighting = () => {
+const handleAdventBtnsLighting = (inTesting = false) => {
 	const adventBtns = document.querySelectorAll(".advent-btn");
 
-	const currentMonth = new Date("Dec 25, 2024 01:00:00").getMonth();
-	const currentDay = new Date("Dec 25, 2024 01:00:00").getDate();
+	const currentYear = new Date().getFullYear();
+
+	const currentMonth = !inTesting
+		? new Date().getMonth()
+		: new Date(`Dec 25, ${currentYear} 01:00:00`).getMonth();
+	const currentDay = !inTesting
+		? new Date().getDate()
+		: new Date(`Dec 25, ${currentYear} 01:00:00`).getDate();
+	// const currentDay = new Date(`Dec 25, ${currentYear} 01:00:00`).getDate();
 
 	adventBtns.forEach((btn) => {
 		btn.setAttribute("disabled", "disabled");
@@ -630,8 +637,8 @@ const handleChristmasMessage = () => {
 const populatePaperWithMessage = () => {
 	const paper = document.querySelector(".paper");
 	const heading = document.createElement("h3");
-  const resourceList = document.createElement("ul")
-  const closing = document.createElement("p")
+	const resourceList = document.createElement("ul");
+	const closing = document.createElement("p");
 
 	const message = [
 		"Merry Christmas everyone! I just want to take this time to tell you something important. Some of what I’m about to tell you, you may know, some you may not, but it’s all important. The overall message being the meaning of Christmas.",
@@ -689,23 +696,48 @@ const populatePaperWithMessage = () => {
 		paraEle.append(paragraph);
 		paper.append(paraEle);
 	});
+	resourceLinks.forEach((link) => {
+		const resource = document.createElement("li");
+		const linkTag = document.createElement("a");
 
-  resourceLinks.forEach(link => {
-    const resource = document.createElement("li")
-    const linkTag = document.createElement("a")
+		linkTag.setAttribute("href", link.link);
+		linkTag.textContent = link.linkText;
 
-    linkTag.setAttribute("href", link.link)
-    linkTag.textContent = link.linkText
+		resource.append(linkTag);
+		resourceList.append(resource);
+	});
+	paper.append(resourceList);
 
-    resource.append(linkTag)
-    resourceList.append(resource)
-  })
-  paper.append(resourceList)
+	closing.textContent = "Merry Christmas and happy new year!";
+	paper.append(closing);
+};
 
-  closing.textContent = "Merry Christmas and happy new year!"
-  paper.append(closing)
+const handleTestMode = () => {
+	const whereToStartTest = document.querySelector(".in-testing");
+	const banner = document.querySelector(".banner");
 
+	let clicks = 0;
+	whereToStartTest.addEventListener("click", () => {
+		clicks++;
+		console.log(`clicks: ${clicks}`);
+		// clicks >= 5 ? preformTestModeAction("on") : null;
+		if (clicks >= 10) {
+			preformTestModeAction("off");
+			banner.classList.remove("toggle-banner");
+			clicks = 0;
+		} else if (clicks >= 5) {
+			preformTestModeAction("on");
+			banner.classList.add("toggle-banner");
+		}
+	});
+};
 
+const preformTestModeAction = (inTesting) => {
+	const testingActive = inTesting === "on" ? true : false;
+	handleAdventBtnsLighting(testingActive);
+	inTesting === "on"
+		? console.log("should be in testing")
+		: console.log("should be out of testing");
 };
 
 handleCountdown();
@@ -715,3 +747,4 @@ handlePlainTextBtns();
 handleGameBtns();
 handleDecorating();
 handleChristmasMessage();
+handleTestMode();

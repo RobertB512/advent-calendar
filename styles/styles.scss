@@ -57,6 +57,26 @@ body {
 	padding: 5rem 0 0 0;
 }
 
+.banner {
+	// position: absolute;
+	// top: 0;
+	width: 100vw;
+	height: 0px;
+	background-color: black;
+	color: white;
+	margin-bottom: 2rem;
+	// padding: 1.5rem;
+	overflow: hidden;
+	transition: 0.6s;
+
+	p {
+		font-size: 0rem;
+    margin: 0 auto;
+    width: 80%;
+		transition: 0.6s;
+	}
+}
+
 // main section
 .main-section {
 	display: flex;
@@ -395,6 +415,15 @@ button.btn-current-day {
 	background: transparent;
 }
 
+.toggle-banner {
+	padding: 1rem;
+	height: fit-content;
+
+	p {
+		font-size: 1.6rem;
+	}
+}
+
 // media queries
 
 @media (max-width: 450px) {
@@ -415,6 +444,13 @@ button.btn-current-day {
 }
 
 @media (max-width: 350px) {
+
+  .banner {
+    p {
+      width: 100%;
+    }
+  }
+
 	.reef-img {
 		max-width: 25rem;
 		height: auto;
