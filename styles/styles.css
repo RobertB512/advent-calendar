@@ -30,7 +30,8 @@ h3 {
 }
 
 p,
-input {
+input,
+a {
   font-size: 2rem;
   transition: 0.2s;
 }
@@ -262,6 +263,11 @@ body {
   width: 100%;
   height: auto;
 }
+.paper ul {
+  display: inline-block;
+  text-align: left;
+  list-style-position: inside;
+}
 
 .bell-img {
   max-width: 15rem;
@@ -353,6 +359,9 @@ button.btn-current-day {
 }
 
 @media (max-width: 450px) {
+  .paper {
+    padding: 1rem;
+  }
   .stockings-img {
     width: 15rem;
     height: auto;
@@ -369,7 +378,8 @@ button.btn-current-day {
     height: auto;
   }
   .paper p,
-  .paper input {
+  .paper input,
+  .paper a {
     font-size: 1.6rem;
   }
 }/*# sourceMappingURL=styles.css.map */

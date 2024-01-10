@@ -621,9 +621,97 @@ const populatePaperWithDecorOptions = (
 	paper.append(contentHeading, note, decorOptionsWrapper);
 };
 
+const handleChristmasMessage = () => {
+	const messageBtn = document.querySelector(".advent-btn-25");
+
+	messageBtn.addEventListener("click", () => populatePaperWithMessage());
+};
+
+const populatePaperWithMessage = () => {
+	const paper = document.querySelector(".paper");
+	const heading = document.createElement("h3");
+  const resourceList = document.createElement("ul")
+  const closing = document.createElement("p")
+
+	const message = [
+		"Merry Christmas everyone! I just want to take this time to tell you something important. Some of what I’m about to tell you, you may know, some you may not, but it’s all important. The overall message being the meaning of Christmas.",
+		"First, let me say that what I’m about to tell you, I’m guilty of not being good at doing. I’m not perfect at what I’m going to say and have a long way to go.",
+		"Christmas is not about the presents, tree, the angel or star on top of the tree, the lights, music, food, or other Christmasy type things. Family, friends, and giving are, or should, be more important, but there’s an even deeper meaning to Christmas.",
+		"You may have heard of the Christmas story, the story about Mary, Joesph, some shepherds, wise men, and of course Jesus. This story is not a fable, or folklore made up by someone a long time ago and passed down generation after generation. This story is true, and Jesus is real too, and he didn’t remain a baby.",
+		"In fact, Jesus didn’t begin to exist that day. He’s always been, and always will be. This is where the meaning for Christmas comes in. Jesus humbled himself and came down as a child to be among us, live a perfect, sinless life that we could never live, and die for our sins.",
+		"You see, according to the Bible, we’ve all sinned. We’ve all done wrong. The Bible says that all have sinned and fallen short of the glory of God. What is sin? Sin is the breaking of God’s law. Sin is not just for Hitler, Stalin, serial killers, and other people that did what we would call heinous crimes. Yes, murder is sin, as well as theft, torture, abusing men, women, and children, and sins too.",
+		"You may think you haven’t committed any sin or wrongdoing that any of those people committed, but let me ask you this, have you ever stolen anything, even if it’s small? Have you ever used the Lord’s name in vain? Have you ever slept around before marriage? Have you ever hated someone? According to God, all this is still sin. Jesus says that if you hate someone, you’re guilty of murder. He also says that if you simply look at someone with lustful intent, you’re guilty of adultery. We’ve all done these things, and more that’s not listed. Based on what Jesus says, we deserve death and hell.",
+		"Hell is what we all deserve. The Bible says that the wage of sin is death. Some say hell is where we’re eternally separated from God. Others say it’s where God’s wrath is endlessly poured out on those in there. It’s a place of total misery, loneliness, and despair. I don’t mean like a bad day, or someone that’s depressed, but far worse. Trust me, you are not going to be partying in hell. Once you’re there, there’s no going back.",
+		"The good news though is that Jesus came to save us, so we wouldn’t have to go to hell, and so we can spend eternity with him. Jesus came down to Earth, fully man, but still fully God to live the sinless life that we could never live, was tempted as we are, but never gave in. He felt pain and sadness, and ultimately was betrayed and died on a cross for our sins.",
+		"That’s not the end of the story, because three days later, he rose from the dead and appeared to his disciples and many others. Later he ascended into heaven to be seated at the right hand of the Father.",
+		"It’s not enough to know this though, not in the slightest. If you want to be with Jesus in Heaven, you must acknowledge that he is God and that there is no other, and that you have sinned, that you need a savior, that is, Jesus. Once you have acknowledged your sinfulness and that Jesus is God, ask him into your heart. It’s that simple. Know though that it’s not your works that save you, but what Jesus did.",
+		"If your stuck on how to ask Jesus into your heart here’s a sample prayer, but please know the prayer is not what saves you. What saves you is accepting Jesus, acknowledging him as God, and that you’re a sinner in need of him. Any prayer will do, but here’s a simple one: Jesus, forgive me. I know that I have sinned against you and need you. I accept you as God and savior. I ask you into my life and I choose to live for you.",
+		"You’re free to talk to God more for as long as you want, casting all your fears, burdens, anxieties, and questions on him. He’s there, you can have a personal relationship with him.",
+		"Now, this life is not going to be easy, you’ll be tempted to fall back into old lifestyles, and your friends and family might tease or be angry with you. God can give you strength though, ask him.",
+		"It’s also important to start reading the Bible and to get into a local church community to grow your faith. As for the Bible, try starting in the book of John. Read it through, then try starting in the book of Matthew and read through the book of Revelation. Take your time though, there’s no rush. Eventually though, you should start reading in the Old Testament, there’s lots of precious information there as well, and Jesus is still there too. As for a church, if you have any Christian friends or family try asking them where you should go. I can’t help you, since I have no idea where you live.",
+		"If you have any questions, again try asking Christian friends and family. Here’s a list of resources, including some for finding answers to questions.",
+	];
+
+	const resourceLinks = [
+		{
+			link: "https://www.youversion.com/the-bible-app/",
+			linkText: "Get a free Bible app",
+		},
+		{
+			link: "https://www.gotquestions.org/",
+			linkText: "Find answers to Bible questions",
+		},
+		{
+			link: "https://www.youtube.com/@MikeWinger",
+			linkText: "Mike Winger on YouTube",
+		},
+		{
+			link: "https://www.youtube.com/@CrossExamined ",
+			linkText: "Frank Turek on YouTube",
+		},
+		{
+			link: "https://www.youtube.com/@alisachilders",
+			linkText: "Alisa Childers",
+		},
+		{
+			link: "https://www.youtube.com/@MelissaDougherty",
+			linkText: "Melissa Dougherty on YouTube",
+		},
+	];
+
+	paper.textContent = "";
+	heading.textContent = "Christmas Message";
+	paper.append(heading);
+
+	message.forEach((paragraph) => {
+		const paraEle = document.createElement("p");
+
+		paraEle.append(paragraph);
+		paper.append(paraEle);
+	});
+
+  resourceLinks.forEach(link => {
+    const resource = document.createElement("li")
+    const linkTag = document.createElement("a")
+
+    linkTag.setAttribute("href", link.link)
+    linkTag.textContent = link.linkText
+
+    resource.append(linkTag)
+    resourceList.append(resource)
+  })
+  paper.append(resourceList)
+
+  closing.textContent = "Merry Christmas and happy new year!"
+  paper.append(closing)
+
+
+};
+
 handleCountdown();
 handleFirePlace();
 handleAdventBtnsLighting();
 handlePlainTextBtns();
 handleGameBtns();
 handleDecorating();
+handleChristmasMessage();

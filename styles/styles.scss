@@ -31,7 +31,8 @@ h3 {
 }
 
 p,
-input {
+input,
+a {
 	font-size: 2rem;
 	transition: 0.2s;
 }
@@ -287,6 +288,12 @@ body {
 		width: 100%;
 		height: auto;
 	}
+
+	ul {
+		display: inline-block;
+		text-align: left;
+		list-style-position: inside;
+	}
 }
 
 .bell-img {
@@ -391,6 +398,10 @@ button.btn-current-day {
 // media queries
 
 @media (max-width: 450px) {
+	.paper {
+		padding: 1rem;
+	}
+
 	.stockings-img {
 		width: 15rem;
 		height: auto;
@@ -411,7 +422,8 @@ button.btn-current-day {
 
 	.paper {
 		p,
-		input {
+		input,
+		a {
 			font-size: 1.6rem;
 		}
 	}
