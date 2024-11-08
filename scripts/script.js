@@ -549,7 +549,7 @@ const handleDecorating = () => {
 			"Choose First Decoration",
 			reefImgSet,
 			reefArea,
-			"Choose a reef to goo under the countdown."
+			"Choose a reef to go under the countdown."
 		)
 	);
 
